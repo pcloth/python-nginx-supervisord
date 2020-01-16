@@ -8,7 +8,7 @@ Linux c212985ddc2b 4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017 
 ### 
 ```sh
   demo:
-    image: pcloth/sina-clound-python:py38-wait
+    image: pcloth/python-nginx-supervisord:py38-wait
     container_name: demo
     hostname: demo
     ports:
