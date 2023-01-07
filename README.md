@@ -38,3 +38,6 @@ docker build -t pcloth/python-nginx-supervisord:py311-wait .
 ```sh
 docker run --name py311 -p 8888:8888  pcloth/python-nginx-supervisord:py311-wait sh -c "while true; do echo hello world; sleep 60; done"
 ```
+
+## 其他更多python版本
+https://hub.docker.com/repository/docker/pcloth/python-nginx-supervisord/tags?page=1&ordering=last_updated
