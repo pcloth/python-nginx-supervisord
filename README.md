@@ -1,14 +1,14 @@
-# docker python 3.8.1 镜像构建包
+# docker python 3.11.1 镜像构建包
 
 ## 系统版本
 Linux c212985ddc2b 4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017 x86_64 GNU/Linux
 
-## 构建步骤
+## 构建方案
 
-### 
+### 1、直接使用做好的镜像（推荐）
 ```sh
   demo:
-    image: pcloth/python-nginx-supervisord:py38-wait
+    image: pcloth/python-nginx-supervisord:py311-wait
     container_name: demo
     hostname: demo
     ports:
@@ -26,4 +26,15 @@ Linux c212985ddc2b 4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017 
     depends_on:
       - mysql
       - redis
+```
+
+### 2、使用Dockerfile构建 
+### 下方-t后面的参数改成你自己的镜像名称
+```sh
+docker build -t pcloth/python-nginx-supervisord:py311-wait .
+```
+
+### 2.1、然后使用本地镜像构建容器
+```sh
+docker run --name py311 -p 8888:8888  pcloth/python-nginx-supervisord:py311-wait sh -c "while true; do echo hello world; sleep 60; done"
 ```
