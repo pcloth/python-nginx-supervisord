@@ -1,9 +1,12 @@
-FROM python:3.11.1
+FROM python:3.11.11-bookworm
 
 COPY ./webroot /webroot
 
-# 启用清华apt源
-RUN sed -i "s@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list && apt-get update
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian bookworm main contrib non-free" > /etc/apt/sources.list
+# RUN sed -i 's/non-free/non-free non-free-firmware/g' /etc/apt/sources.list
+
+# 接受debconf警告
+RUN apt-get update --allow-releaseinfo-change
 
 # 安装常用工具
 RUN apt-get install -y \
