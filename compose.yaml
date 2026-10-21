@@ -1,0 +1,15 @@
+services:
+  demo:
+    build:
+      context: .
+      args:
+        PYTHON_BASE_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.8.20-bookworm}
+    image: pcloth/python-nginx-supervisord:py3.8.20-wait
+    working_dir: /webroot
+    volumes:
+      - ./webroot:/webroot
+      - ./python-packages:/opt/venv
+    # Replace with your application's command, such as:
+    # command: ["supervisord", "-n", "-c", "conf/supervisor-dev.conf"]
+    command: ["sleep", "infinity"]
+    restart: unless-stopped

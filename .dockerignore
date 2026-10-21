@@ -1,0 +1,13 @@
+.git
+.agents
+.codex
+.aws
+py3820
+*.tar
+*.tar.gz
+ngx_http_js_module.so
+**/__pycache__
+**/*.py[cod]
+.venv
+venv
+python-packages
